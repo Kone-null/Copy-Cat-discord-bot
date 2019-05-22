@@ -117,8 +117,7 @@ async def on_message(message):                        # NEED TO IGNORE MESSAGE S
 
 	await bot.process_commands(message)
 
-@bot.command(name="temp")
-async def tempconversion(temp):
+@bot.command(name="cf",breif="Convert celsius > fahrenheit and fahrenheit > celsius (in Development)",aliases=["CF","Cf"])
 	if 'c' in str(temp).lower():
 		f = (float(temp.replace(temp[-1],""))*float(1.80))+32
 		await bot.say("{} now becomes {}.".format(temp,f))
