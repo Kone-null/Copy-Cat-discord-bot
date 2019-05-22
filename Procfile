@@ -1,1 +1,1 @@
-worker: python Copy_Cat_Bot.py
+worker: python Bot.py
