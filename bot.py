@@ -104,9 +104,11 @@ async def on_message(message):                        # NEED TO IGNORE MESSAGE S
 				await message.channel.send("What do you want!?:pouting_cat:")
 
 	elif "hentai" in message.content.lower():
-		await message.channel.send("HENTAI !!!:heart_eyes_cat:")
-		await asyncio.sleep(1)
-		await message.channel.send("GIVE IT TO ME!!!")
+		if message.author != bot.user:
+			for i in range(random.choice(range(1,30))):
+				await message.channel.send("HENTAI !!!:heart_eyes_cat:")
+				await asyncio.sleep(1)
+				await message.channel.send("GIVE IT TO ME!!!")
 			
 	else:
 		if message.author != bot.user:
