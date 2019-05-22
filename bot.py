@@ -89,6 +89,7 @@ async def on_message(message):                        # NEED TO IGNORE MESSAGE S
 				print(obj.url)
 				print('>------')
 				await message.channel.send(obj.url) # output Copy of orginal message
+	
 	elif bot.user.mentioned_in(message):
 		if message.author != bot.user:
 			print(message.content)
@@ -103,7 +104,7 @@ async def on_message(message):                        # NEED TO IGNORE MESSAGE S
 				await message.channel.send("What do you want!?:pouting_cat:")
 
 	elif "hentai" in message.content.lower():
-		await message.channel.send("HENTAI!!!:heart_eyes_cat:")
+		await message.channel.send("HENTAI !!!:heart_eyes_cat:")
 		await asyncio.sleep(1)
 		await message.channel.send("GIVE IT TO ME!!!")
 			
