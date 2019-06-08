@@ -117,6 +117,20 @@ async def on_message(message):                        # NEED TO IGNORE MESSAGE S
 
 	await bot.process_commands(message)
 
+@bot.command(name="convert",breif="Convert celsius > fahrenheit and fahrenheit > celsius (in Development)",aliases=["Convert","conv","Conv"])
+async def temp_conv(ctx,temp):
+	print("On Command: ","temp_conv")
+	degree = temp[-1].lower()
+	if degree == "c":
+		f = (float(temp.replace(temp[-1],""))*float(1.80))+32
+		await ctx.send("{} now becomes {}.".format(temp,str(f)+"F"))
+	elif degree == 'f':
+		c = (float(temp.replace(temp[-1],""))-32)/float(1.80)
+		await ctx.send("{} now becomes {}.".format(temp,str(c)+"C"))
+	else:
+		await ctx.send("Something went wrong. Check your units maybe?")
+	
+	
 @bot.command(name="cf",breif="Convert celsius > fahrenheit and fahrenheit > celsius (in Development)",aliases=["CF","Cf"])
 	if 'c' in str(temp).lower():
 		f = (float(temp.replace(temp[-1],""))*float(1.80))+32
