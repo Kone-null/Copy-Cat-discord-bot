@@ -117,7 +117,9 @@ async def on_message(message):                        # NEED TO IGNORE MESSAGE S
 
 	await bot.process_commands(message)
 
-@bot.command(name="convert",breif="Convert celsius > fahrenheit and fahrenheit > celsius (in Development)",aliases=["Convert","conv","Conv"])
+@bot.command(name="convert",
+	     breif="Convert F to C & C to F (Degrees)",
+	     aliases=["Convert","conv","Conv"])
 async def temp_conv(ctx,temp):
 	print("On Command: ","temp_conv")
 	degree = temp[-1].lower()
