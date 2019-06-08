@@ -129,21 +129,6 @@ async def temp_conv(ctx,temp):
 		await ctx.send("{} now becomes {}.".format(temp,str(c)+"C"))
 	else:
 		await ctx.send("Something went wrong. Check your units maybe?")
-	
-	
-@bot.command(name="cf",breif="Convert celsius > fahrenheit and fahrenheit > celsius (in Development)",aliases=["CF","Cf"])
-	if 'c' in str(temp).lower():
-		f = (float(temp.replace(temp[-1],""))*float(1.80))+32
-		await bot.say("{} now becomes {}.".format(temp,f))
-	elif "f" in str(temp).lower():
-		c = (float(temp.replace(temp[-1],""))-32)/float(1.80)
-		await bot.say("{} now becomes {}.".format(temp,c))
-	else:
-		await bot.say("Something went wrong. Check your units maybe?")		
-
-
-
-
 
 @bot.event
 async def on_ready():
