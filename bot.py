@@ -8,7 +8,7 @@ import random
 BOT_PREFIX = ("neko? ","Neko? ")
 NoCopyList = []
 bot = Bot(command_prefix=BOT_PREFIX)
-
+TOKEN = ""
 
 @bot.command(name="nocopy", 
 	aliases=['Nocopy',"nocp","NoCp"], 
@@ -142,5 +142,5 @@ async def on_ready():
 	activity = discord.Activity(name=' Hentai', type=discord.ActivityType.watching)
 	await bot.change_presence(activity=activity)
 
-bot.run(str(os.environ.get('BOT_TOKEN')))
-
+bot.run(str(os.environ.get('BOT_TOKEN')))  #-------<COMMENT LINE (put '#' before 'bot') >
+#bot.run(str(TOKEN))                #------< UNCOMMENT LINE(remove '#' before 'bot' >
