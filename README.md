@@ -25,4 +25,4 @@ CopyCat is using `python-3.6.2`
 - Uncomment `#bot.run(str(TOKEN))`
 - Comment out or remove  `bot.run(str(os.environ.get('BOT_TOKEN')))`
 #### 3. Run `bot.py`
-###ALL DONE
+### ALL DONE
