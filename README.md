@@ -23,6 +23,6 @@ CopyCat is using `python-3.6.2`
 #### 2. Get Your token set
 - Set `TOKEN` = `your-token`
 - Uncomment `#bot.run(str(TOKEN))`
-- Comment out `bot.run(str(os.environ.get('BOT_TOKEN')))` or remove
+- Comment out or remove  `bot.run(str(os.environ.get('BOT_TOKEN')))`
 #### 3. Run `bot.py`
-ALL DONE
+###ALL DONE
