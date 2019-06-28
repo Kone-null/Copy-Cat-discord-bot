@@ -15,14 +15,14 @@
 ## Technical Stuff
 CopyCat is using `python-3.6.2` 
 ## Setup your own CopyCat
-1. Dependencies 
+#### 1. Dependencies 
 - Install `discord.py`
   - Check the awesome github for instructions: `https://github.com/Rapptz/discord.py`
 - Install `asyncio`
   -`pip install asyncio`
-2. Get Your token set
+#### 2. Get Your token set
 - Set `TOKEN` = `your-token`
 - Uncomment `#bot.run(str(TOKEN))`
 - Comment out `bot.run(str(os.environ.get('BOT_TOKEN')))` or remove
-3. Run `bot.py`
+#### 3. Run `bot.py`
 ALL DONE
