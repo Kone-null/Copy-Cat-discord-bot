@@ -12,10 +12,10 @@ from discord.ext.commands import Bot
 BOT_PREFIX = ("neko? ","Neko? ",'n? ','N? ',"n","N")
 NoCopyList = []
 bot = Bot(command_prefix=BOT_PREFIX)
-TOKEN = "NTc4NzEzMDM1MDI4NDMwODgz.XRPrLw.mcn42-8o5hp8R2oNyiMGA_zvIA8"
+TOKEN = ""
 
 try:
-	DatabaseUrl = 'https://ani-net-discord-data-beta.firebaseio.com/'
+	DatabaseUrl = str(os.environ.get('DB_TOKEN'))
 	# CONNECT TO FIREBASE DATABASE
 	FBCONN = firebase.FirebaseApplication(DatabaseUrl,None)
 except Exception as e:
@@ -177,5 +177,5 @@ async def on_ready():
 	activity = discord.Activity(name=' Hentai', type=discord.ActivityType.watching)
 	await bot.change_presence(activity=activity)
 
-# bot.run(str(os.environ.get('BOT_TOKEN')))  #-------<COMMENT LINE (put '#' before 'bot') >
-bot.run(str(TOKEN))                #------< UNCOMMENT LINE(remove '#' before 'bot' >
+bot.run(str(os.environ.get('BOT_TOKEN')))  #-------<COMMENT LINE (put '#' before 'bot') >
+# bot.run(str(TOKEN))                #------< UNCOMMENT LINE(remove '#' before 'bot' >
