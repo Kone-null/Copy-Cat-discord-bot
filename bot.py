@@ -12,10 +12,10 @@ from discord.ext.commands import Bot
 BOT_PREFIX = ("neko? ","Neko? ",'n? ','N? ',"n","N")
 NoCopyList = []
 bot = Bot(command_prefix=BOT_PREFIX)
-TOKEN = ""
+TOKEN = "NTc4NzEzMDM1MDI4NDMwODgz.XRPrLw.mcn42-8o5hp8R2oNyiMGA_zvIA8"
 
 try:
-	DatabaseUrl = str(os.environ.get('DB_TOKEN'))
+	DatabaseUrl = 'https://ani-net-discord-data-beta.firebaseio.com/'
 	# CONNECT TO FIREBASE DATABASE
 	FBCONN = firebase.FirebaseApplication(DatabaseUrl,None)
 except Exception as e:
@@ -40,7 +40,7 @@ async def msg_rec(message):
 			'content': message.content.lower()	
 		}
 
-		results = FBCONN.post('/testdata/account/'+usr,data)
+		results = FBCONN.post(mpath,msgData)
 		print(results)
 
 
@@ -95,7 +95,7 @@ async def copyme(message):
 @bot.event
 async def on_message(message):                        # NEED TO IGNORE MESSAGE STARTING WITH neko? and the 
 	print("NEW MESSAGE")
-	msg_rec(message)
+	await msg_rec(message)
 	usr_id = message.author.id
 	print(NoCopyList)
 	print(usr_id)
@@ -177,5 +177,5 @@ async def on_ready():
 	activity = discord.Activity(name=' Hentai', type=discord.ActivityType.watching)
 	await bot.change_presence(activity=activity)
 
-bot.run(str(os.environ.get('BOT_TOKEN')))  #-------<COMMENT LINE (put '#' before 'bot') >
-#bot.run(str(TOKEN))                #------< UNCOMMENT LINE(remove '#' before 'bot' >
+# bot.run(str(os.environ.get('BOT_TOKEN')))  #-------<COMMENT LINE (put '#' before 'bot') >
+bot.run(str(TOKEN))                #------< UNCOMMENT LINE(remove '#' before 'bot' >
