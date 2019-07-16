@@ -1,3 +1,6 @@
 discord
 asyncio
+requests==1.1.0
+python-firebase
+datetime
 pip
