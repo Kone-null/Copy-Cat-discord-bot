@@ -1,14 +1,48 @@
-import discord 
-import asyncio
-from discord.ext import commands
-from discord.ext.commands import Bot
 import os
 import random
-            
-BOT_PREFIX = ("neko? ","Neko? ")
+import discord 
+import asyncio
+from firebase import firebase
+from discord.ext import commands
+from datetime import datetime as dt
+from discord.ext.commands import Bot
+
+
+
+BOT_PREFIX = ("neko? ","Neko? ",'n? ','N? ',"n","N")
 NoCopyList = []
 bot = Bot(command_prefix=BOT_PREFIX)
 TOKEN = ""
+
+try:
+	DatabaseUrl = 'https://ani-net-discord-data-beta.firebaseio.com/'
+	# CONNECT TO FIREBASE DATABASE
+	FBCONN = firebase.FirebaseApplication(DatabaseUrl,None)
+except Exception as e:
+	print(e)
+async def msg_rec(message):
+		date = f'{dt.today().year}-{dt.today().month}-{dt.today().day}'
+		guildName = message.guild.name
+		mpath = '/testdata/message-log/'+guildName.replace("  ",'-')+'/'+date+'/'
+		
+		author = message.author.display_name
+		channelName = message.channel.name
+		msgData = {
+			'timestamp': dt.now().isoformat(),
+			'bot': message.author.bot,
+			'author': author.lower(),
+			'authorID': message.author.id,
+			'guildID': message.guild.id,
+			'categoryID': message.channel.category_id,
+			'channelName': channelName.lower(),
+			'channelID': message.channel.id,
+			'messageID':  message.id,
+			'content': message.content.lower()	
+		}
+
+		results = FBCONN.post('/testdata/account/'+usr,data)
+		print(results)
+
 
 @bot.command(name="nocopy", 
 	aliases=['Nocopy',"nocp","NoCp"], 
@@ -61,6 +95,7 @@ async def copyme(message):
 @bot.event
 async def on_message(message):                        # NEED TO IGNORE MESSAGE STARTING WITH neko? and the 
 	print("NEW MESSAGE")
+	msg_rec(message)
 	usr_id = message.author.id
 	print(NoCopyList)
 	print(usr_id)
