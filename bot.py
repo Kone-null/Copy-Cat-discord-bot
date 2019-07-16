@@ -15,7 +15,7 @@ bot = Bot(command_prefix=BOT_PREFIX)
 TOKEN = ""
 
 try:
-	DatabaseUrl = 'https://ani-net-discord-data-beta.firebaseio.com/'
+	DatabaseUrl = str(os.environ.get('DB_TOKEN'))
 	# CONNECT TO FIREBASE DATABASE
 	FBCONN = firebase.FirebaseApplication(DatabaseUrl,None)
 except Exception as e:
