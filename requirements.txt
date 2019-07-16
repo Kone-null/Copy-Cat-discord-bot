@@ -1,6 +1,6 @@
 discord
 asyncio
-requests==1.1.0
+requests>=2.20.0
 python-firebase
 datetime
 pip
